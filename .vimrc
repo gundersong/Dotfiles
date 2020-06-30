@@ -43,7 +43,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
  endfunction
 
-
 inoremap <silent><expr> <TAB>
   \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
@@ -59,6 +58,13 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Nerdtree - open fzf files in wondow
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":FZF\<cr>"
+nnoremap <silent> <expr> <Leader><S-F> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":GGrep\<cr>"
+
+" Git grep with FZF
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
@@ -80,3 +86,5 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
 
+" Map cmd-shift-f to git grep search
+nnoremap <C-S-F> :GGrep<CR>
