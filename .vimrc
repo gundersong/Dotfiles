@@ -83,12 +83,11 @@ nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
 nnoremap <leader>gf :NERDTreeFind<CR>
 
-inoremap <C-c> <esc>
-
-nnoremap E <End>
 nnoremap q b
+inoremap <C-c> <esc>
+nnoremap <S-e> <End>
+nnoremap <S-q> <Home>
+nnoremap <C-x> :q<CR>
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
 
-" Map cmd-shift-f to git grep search
-nnoremap <C-S-F> :GGrep<CR>
