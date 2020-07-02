@@ -5,7 +5,7 @@ Lives in ~/.vimrc and holds all the configuration, shortcut remaps and plugin in
 
 To ensure this config works from scratch, you must first install [vim-plug](https://github.com/junegunn/vim-plug).
 
-Then, once that is installed, open vim/neovim and run :PlugInstall, which will install all the required plugins.
+Then, once that is installed, open vim/neovim and run `:PlugInstall`, which will install all the required plugins.
 
 
 ### .tmux.conf
@@ -17,5 +17,5 @@ Lives in ~/.config/nvim/init.vim, and creates the config for neovim, including s
 
 
 ### coc-settings.json
-Can be updating by running :CocConfig in vim once the first ~/.vimrc file has been added.
+Can be updating by running `:CocConfig` in vim once the first ~/.vimrc file has been added.
 
