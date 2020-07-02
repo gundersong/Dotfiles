@@ -16,8 +16,9 @@ set incsearch
 set backspace=indent,eol,start
 
 let mapleader = " "
+let NERDTreeShowHidden=1
 
-set colorcolumn=100
+set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
@@ -30,6 +31,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -71,17 +74,17 @@ command! -bang -nargs=* GGrep
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 " GoTo code navigation.
-nnoremap <leader>gd <Plug>(coc-definition)
-nnoremap <leader>gy <Plug>(coc-type-definition)
-nnoremap <leader>gi <Plug>(coc-implementation)
-nnoremap <leader>gr <Plug>(coc-references)
-nnoremap <leader>rr <Plug>(coc-rename)
-nnoremap <leader>g[ <Plug>(coc-diagnostic-prev)
-nnoremap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>g[ <Plug>(coc-diagnostic-prev)
+nmap <leader>g] <Plug>(coc-diagnostic-next)
 nnoremap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
-nnoremap <leader>gf :NERDTreeFind<CR>
+nmap <leader>gf :NERDTreeFind<CR>
 
 nnoremap q b
 inoremap <C-c> <esc>
