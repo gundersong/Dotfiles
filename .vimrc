@@ -10,10 +10,11 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
-set undodir=/.vim/undodir
+set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set backspace=indent,eol,start
+set hls!
 
 let mapleader = " "
 let NERDTreeShowHidden=1
