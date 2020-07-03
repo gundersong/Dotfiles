@@ -18,6 +18,8 @@ set hls!
 
 let mapleader = " "
 let NERDTreeShowHidden=1
+let g:multi_cursor_exit_from_visual_mode=1
+let g:multi_cursor_exit_from_insert_mode=1
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -34,6 +36,7 @@ Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -88,7 +91,9 @@ nnoremap <leader>cr :CocRestart<CR>
 nmap <leader>gf :NERDTreeFind<CR>
 
 nnoremap q b
-inoremap <C-c> <esc>
+inoremap <C-c> <esc> :noh<CR>
+vnoremap <C-c> :noh<CR><esc>
+nnoremap <C-c> <esc>
 nnoremap <S-e> <End>
 nnoremap <S-q> <Home>
 nnoremap <C-x> :q<CR>
