@@ -90,6 +90,11 @@ nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
 nmap <leader>gf :NERDTreeFind<CR>
 
+" Vim fugitive shortcuts
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gs :G<CR>
+
 nnoremap q b
 inoremap <C-c> <esc> :noh<CR>
 vnoremap <C-c> :noh<CR><esc>
