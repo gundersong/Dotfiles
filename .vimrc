@@ -45,6 +45,12 @@ colorscheme gruvbox
 set background=dark
 set t_Co=256
 let g:javascript_plugin_flow = 1
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-eslint',
+      \ 'coc-prettier',
+      \ 'coc-json'
+      \ ]
 
 " NERDTree split on right
 set splitright
@@ -60,7 +66,7 @@ inoremap <silent><expr> <TAB>
   \ coc#refresh()
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-space> coc#refresh()
 
 " autoformat
@@ -68,7 +74,7 @@ vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " Nerdtree - open fzf files in wondow
-nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":FZF\<cr>"
+nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":GFiles .\<cr>"
 nnoremap <silent> <expr> <Leader><S-F> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":GGrep\<cr>"
 
 " Git grep with FZF
@@ -90,18 +96,27 @@ nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
 nmap <leader>gf :NERDTreeFind<CR>
 
+" NERDTree tab navigation
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+map  <C-n> :tabnew<CR>
+
 " Vim fugitive shortcuts
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gs :G<CR>
 
 nnoremap q b
-inoremap <C-c> <esc> :noh<CR>
-vnoremap <C-c> :noh<CR><esc>
+inoremap <C-c> <esc>
+vnoremap <C-c> <esc>
 nnoremap <C-c> <esc>
 nnoremap <S-e> <End>
 nnoremap <S-q> <Home>
 nnoremap <C-x> :q<CR>
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 
