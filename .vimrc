@@ -37,7 +37,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -50,6 +49,7 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-eslint',
       \ 'coc-prettier',
+      \ 'coc-python',
       \ 'coc-json',
       \ 'coc-omnisharp',
       \ ]
@@ -101,11 +101,13 @@ nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '')
 nnoremap <silent> <expr> <Leader><S-F> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":GGrep\<cr>"
 
 nmap <leader>gf :NERDTreeFind<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " NERDTree tab navigation
-map  <C-l> :tabn<CR>
-map  <C-h> :tabp<CR>
-map  <C-n> :tabnew<CR>
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
+map <C-n> :tabnew<CR>
 
 " Git grep with FZF
 command! -bang -nargs=* GGrep
@@ -117,6 +119,7 @@ command! -bang -nargs=* GGrep
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gs :G<CR>
+nmap <leader><S-G> :Gdiffsplit HEAD<CR>
 
 " Basic remaps
 nnoremap q b
