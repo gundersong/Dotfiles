@@ -18,10 +18,14 @@ set hls
 
 let mapleader = " "
 let NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen = 1
+
 let g:multi_cursor_exit_from_visual_mode=1
 let g:multi_cursor_exit_from_insert_mode=1
+let g:javascript_sql_dialect = 'pgsql'
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
+
 let g:javascript_plugin_flow = 1
 
 call plug#begin('~/.vim/plugged')
@@ -37,6 +41,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -52,6 +58,9 @@ let g:coc_global_extensions = [
       \ 'coc-python',
       \ 'coc-json',
       \ 'coc-omnisharp',
+      \ 'coc-flow',
+      \ 'coc-sh',
+      \ 'coc-git'
       \ ]
 
 inoremap <silent><expr> <TAB>
@@ -106,7 +115,7 @@ let NERDTreeDirArrows = 1
 
 " NERDTree tab navigation
 map <C-l> :tabn<CR>
-map <C-h> :tabp<CR>
+nnoremap <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
 " Git grep with FZF
