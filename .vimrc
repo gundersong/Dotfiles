@@ -18,7 +18,6 @@ set hls
 
 let mapleader = " "
 let NERDTreeShowHidden=1
-let g:NERDTreeQuitOnOpen = 1
 
 let g:multi_cursor_exit_from_visual_mode=1
 let g:multi_cursor_exit_from_insert_mode=1
@@ -88,7 +87,7 @@ nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
 
 " COC Show documentation in preview window.
-nnoremap <silent>sd  :call <SID>show_documentation()<CR>
+nnoremap <silent>dd  :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -98,7 +97,7 @@ function! s:show_documentation()
 endfunction
 
 " NERDTree split on right
-set splitright
+ set splitright
 
 function! s:check_back_space() abort
   let col = col('.') - 1
