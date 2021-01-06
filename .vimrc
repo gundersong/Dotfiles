@@ -41,7 +41,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -53,6 +53,7 @@ set t_Co=256
 let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-eslint',
+      \ 'coc-tslint',
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-json',
@@ -87,14 +88,14 @@ nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
 
 " COC Show documentation in preview window.
-nnoremap <silent>dd  :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+"nnoremap <silent>sp  :call <SID>show_documentation()<CR>
+"function! s:show_documentation()
+"  if (index(['vim','help'], &filetype) >= 0)
+"    execute 'h '.expand('<cword>')
+"  else
+"    call CocAction('doHover')
+"  endif
+"endfunction
 
 " NERDTree split on right
  set splitright
