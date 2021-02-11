@@ -22,10 +22,9 @@ let NERDTreeShowHidden=1
 let g:multi_cursor_exit_from_visual_mode=1
 let g:multi_cursor_exit_from_insert_mode=1
 let g:javascript_sql_dialect = 'pgsql'
+let g:javascript_plugin_flow = 1
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-let g:javascript_plugin_flow = 1
 
 call plug#begin('~/.vim/plugged')
 
@@ -83,6 +82,7 @@ nmap <leader>gr <Plug>(coc-references)
 nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>g[ <Plug>(coc-diagnostic-prev)
 nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>i <Plug>(coc-diagnostic-info)
 nnoremap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nnoremap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart<CR>
@@ -105,7 +105,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
  endfunction
 
-" Nerdtree - open fzf files in wondow
+" Nerdtree - open fzf files in window
 nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":GFiles .\<cr>"
 nnoremap <silent> <expr> <Leader><S-F> (expand('%') =~ 'NERD_tree' ?"\<c-w>\<c-w>" : '').":GGrep\<cr>"
 
@@ -132,11 +132,12 @@ nmap <leader><S-G> :Gdiffsplit HEAD<CR>
 
 " Basic remaps
 nnoremap q b
+vnoremap <leader>c "*y<CR>
 inoremap <C-c> <esc>
 vnoremap <C-c> <esc>
 nnoremap <C-c> <esc>
 nnoremap <S-e> <End>
-nnoremap <S-q> <Home>
+nnoremap <S-q> ^
 nnoremap <C-x> :q<CR>
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
